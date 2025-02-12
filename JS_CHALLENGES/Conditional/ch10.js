@@ -16,15 +16,4 @@ function calculator(num1, num2, operator) {
   }
 
   console.log(calculator(10, 0, "/") ) // Divide by zero error
-
-  // You just need to implement the checkEvenOdd function
-
-function checkEvenOdd(num) {
-  if (num%2==0){
-    return "even"
-  }else {
-    return "odd"
-  }
-}
-// checkEvenOdd(4)
-  console.log(checkEvenOdd(4))
+  console.log(calculator(10, 2, "/") ) // 5
