@@ -16,7 +16,6 @@ app.use(cors({
 }))
 
 app.use(express.json())  // backend will accept json data
-const port = process.env.PORT || 3000 
 
 app.use(express.urlencoded({ extended: true }))  // backend will accept form data
 
@@ -29,11 +28,20 @@ app.get('/siraj', (req, res) => { // this func will run when client send rqst to
 })
 
 //connect to db
-db();
+// db();
 
 //user routes
 app.use('/api/v1/users', userRoutes) // api/v1/user is the base url, uske baad jo bhi url hoga wo userRoutes.js se aayega
 
-app.listen(port, () => {
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`)
+// })
+
+// Connect to DB first, then start server
+const server = async () => {
+  await db()
+  const port = process.env.PORT || 3000 
+   app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-})
+})}
+server()
